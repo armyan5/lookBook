@@ -14,7 +14,7 @@ public class FooterLinkTests extends TestBase {
 
     @Test
     public void whatsAppLinkTest() {
-        driver.findElement(By.className("")).click(); // className
+        driver.findElement(By.className("whatsapp")).click(); // className
         switchToNextTab(1);
     }
 

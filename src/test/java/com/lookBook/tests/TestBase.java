@@ -33,9 +33,8 @@ public class TestBase {
         return driver.findElements(locator).size() > 0;
     }
 
-    public TestBase switchToNextTab(int index) {
+    public void switchToNextTab(int index) {
         List<String> tabs = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(index));
-        return this;
     }
 }

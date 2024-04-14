@@ -17,6 +17,8 @@ public class LoginTests extends TestBase {
         driver.findElement(By.id("password")).click();
         driver.findElement(By.id("password")).clear();
         driver.findElement(By.id("password")).sendKeys(""); // sendKeys
+
+        driver.findElement(By.className(".submitButton")).click();
         Assert.assertTrue(isElementPresent(By.cssSelector(""))); // assert logOut
     }
 }
