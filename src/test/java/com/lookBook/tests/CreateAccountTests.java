@@ -19,6 +19,7 @@ public class CreateAccountTests extends TestBase {
         driver.findElement(By.id("new-password")).sendKeys("");
 
         driver.findElement(By.cssSelector(".submitButton")).click();
+      //  Assert.assertTrue(isAlertAppears());
         Assert.assertTrue(isElementPresent(By.cssSelector(" ")));
 
     }

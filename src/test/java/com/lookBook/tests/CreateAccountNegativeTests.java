@@ -1,6 +1,7 @@
 package com.lookBook.tests;
 
 import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class CreateAccountNegativeTests extends TestBase {
@@ -18,6 +19,7 @@ public class CreateAccountNegativeTests extends TestBase {
         driver.findElement(By.id("new-password")).sendKeys("");  // sendKeys
 
         driver.findElement(By.className(".submitButton")).click();
+        Assert.assertTrue(isAlertAppears());
     }
 
     @Test
@@ -33,6 +35,7 @@ public class CreateAccountNegativeTests extends TestBase {
         driver.findElement(By.id("new-password")).sendKeys("");  // sendKeys
 
         driver.findElement(By.className(".submitButton")).click();
+        Assert.assertTrue(isAlertAppears());
 
     }
 
@@ -65,6 +68,7 @@ public class CreateAccountNegativeTests extends TestBase {
         driver.findElement(By.id("new-password")).sendKeys("");  // sendKeys
 
         driver.findElement(By.className(".submitButton")).click();
+        Assert.assertTrue(isAlertAppears());
 
     }
 
@@ -81,6 +85,7 @@ public class CreateAccountNegativeTests extends TestBase {
         driver.findElement(By.id("new-password")).sendKeys("");  // sendKeys
 
         driver.findElement(By.className(".submitButton")).click();
+        Assert.assertTrue(isAlertAppears());
 
 
     }
