@@ -1,27 +1,27 @@
 package com.lookBook.tests;
 
 
-import org.openqa.selenium.By;
+import com.lookBook.fw.HomePageHelper;
 import org.testng.annotations.Test;
 
 public class FooterLinkTests extends TestBase {
 
     @Test
     public void fbLinkTest() {
-        driver.findElement(By.className("mr-10")).click();
-        switchToNextTab(1);
+        app.driver.findElement(HomePageHelper.fbLink()).click();
+        app.getUser().switchToNextTab(1);
     }
 
     @Test
     public void whatsAppLinkTest() {
-        driver.findElement(By.className("whatsapp")).click(); // className
-        switchToNextTab(1);
+        app.driver.findElement(HomePageHelper.watsAppLink()).click(); // className
+        app.getUser().switchToNextTab(1);
     }
 
     @Test
     public void instagramLinkTest() {
-        driver.findElement(By.className("instagram")).click();
-        switchToNextTab(1);
+        app.driver.findElement(HomePageHelper.instagramLink()).click();
+        app.getUser().switchToNextTab(1);
     }
 
 }

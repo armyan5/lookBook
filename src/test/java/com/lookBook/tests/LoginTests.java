@@ -1,6 +1,6 @@
 package com.lookBook.tests;
 
-import org.openqa.selenium.By;
+import com.lookBook.models.User;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -8,17 +8,14 @@ public class LoginTests extends TestBase {
 
     @Test
     public void loginPositiveTest() {
-        driver.findElement(By.cssSelector(".SignInHeader")).click();
+        app.getUser().clickOnSignInLink();
+        app.getUser().fillSignInForm(new User()
+                .setLogin("test123@gm.com")
+                .setPassword("zxcvbAS1"));
+        app.getUser().clickOnSignInButton();
+        app.getUser().isAlertAppears();
+        Assert.assertTrue(app.getUser().isButtonLogoutPresent());
 
-        driver.findElement(By.id("login")).click();
-        driver.findElement(By.id("login")).clear();
-        driver.findElement(By.id("login")).sendKeys(""); // sendKeys
-
-        driver.findElement(By.id("password")).click();
-        driver.findElement(By.id("password")).clear();
-        driver.findElement(By.id("password")).sendKeys(""); // sendKeys
-
-        driver.findElement(By.className(".submitButton")).click();
-        Assert.assertTrue(isElementPresent(By.cssSelector(""))); // assert logOut
     }
+
 }

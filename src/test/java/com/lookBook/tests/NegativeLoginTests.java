@@ -1,6 +1,6 @@
 package com.lookBook.tests;
 
-import org.openqa.selenium.By;
+import com.lookBook.fw.UserHelper;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -8,72 +8,38 @@ public class NegativeLoginTests extends TestBase {
 
     @Test
     public void loginNegativeTestWithNotValidEmail() {
-        driver.findElement(By.cssSelector(".SignInHeader")).click();
-
-        driver.findElement(By.id("login")).click();
-        driver.findElement(By.id("login")).clear();
-        driver.findElement(By.id("login")).sendKeys(""); // sendKeys
-
-        driver.findElement(By.id("password")).click();
-        driver.findElement(By.id("password")).clear();
-        driver.findElement(By.id("password")).sendKeys(""); // sendKeys
-
-        driver.findElement(By.className(".submitButton")).click();
-        Assert.assertTrue(isAlertAppears());
+        app.driver.findElement(UserHelper.signInLink()).click();
+        app.getUser().fillLoginFieldWithNotValidEmail();
+        app.driver.findElement(UserHelper.sinInButton()).click();
+        Assert.assertTrue(app.getUser().isAlertAppears());
 
     }
 
     @Test
     public void loginNegativeTestWithNullEmail() {
-        driver.findElement(By.cssSelector(".SignInHeader")).click();
-
-        driver.findElement(By.id("login")).click();
-        driver.findElement(By.id("login")).clear();
-        driver.findElement(By.id("login")).sendKeys("        "); // sendKeys
-
-        driver.findElement(By.id("password")).click();
-        driver.findElement(By.id("password")).clear();
-        driver.findElement(By.id("password")).sendKeys(""); // sendKeys
-
-        driver.findElement(By.className(".submitButton")).click();
-        Assert.assertTrue(isAlertAppears());
+        app.driver.findElement(UserHelper.signInLink()).click();
+        app.getUser().fillLoginFieldWithNullEmail();
+        app.driver.findElement(UserHelper.sinInButton()).click();
+        Assert.assertTrue(app.getUser().isAlertAppears());
 
     }
 
 
-
     @Test
-    public void loginNegativeTestWithNotWalid() {
-        driver.findElement(By.cssSelector(".SignInHeader")).click();
-
-        driver.findElement(By.id("login")).click();
-        driver.findElement(By.id("login")).clear();
-        driver.findElement(By.id("login")).sendKeys(""); // sendKeys
-
-        driver.findElement(By.id("password")).click();
-        driver.findElement(By.id("password")).clear();
-        driver.findElement(By.id("password")).sendKeys(""); // sendKeys
-
-        driver.findElement(By.className(".submitButton")).click();
-        Assert.assertTrue(isAlertAppears());
-
+    public void loginNegativeTestWithNotWalidPassword() {
+        app.driver.findElement(UserHelper.signInLink()).click();
+        app.getUser().fillLoginFieldWithNotWalidPassword();
+        app.driver.findElement(UserHelper.sinInButton()).click();
+        Assert.assertTrue(app.getUser().isAlertAppears());
 
     }
 
     @Test
     public void loginNegativeTestWithNullPassword() {
-        driver.findElement(By.cssSelector(".SignInHeader")).click();
-
-        driver.findElement(By.id("login")).click();
-        driver.findElement(By.id("login")).clear();
-        driver.findElement(By.id("login")).sendKeys(""); // sendKeys
-
-        driver.findElement(By.id("password")).click();
-        driver.findElement(By.id("password")).clear();
-        driver.findElement(By.id("password")).sendKeys(""); // sendKeys
-
-        driver.findElement(By.className(".submitButton")).click();
-        Assert.assertTrue(isAlertAppears());
+        app.driver.findElement(UserHelper.signInLink()).click();
+        app.getUser().fillLogFieldWithNullPassword();
+        app.driver.findElement(UserHelper.sinInButton()).click();
+        Assert.assertTrue(app.getUser().isAlertAppears());
 
     }
 
